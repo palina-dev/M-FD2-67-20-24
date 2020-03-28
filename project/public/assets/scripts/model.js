@@ -10,10 +10,13 @@ function Model() {
       links: {
         main: `
         <div id="main" class="d-flex flex-column justify-content-center align-items-center">
-          <a href="#game">Play</a>
-          <a href="#rules">Rules</a>
-          <a href="#results">Results</a>
-        </div>
+            <h1>One vs All</h1>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <a href="#game" id="start">Play</a>
+                <a href="#rules">Rules</a>
+                <a href="#results">Results</a>
+            </div>
+          </div>
         `,
         game: `
         <div id="game">
