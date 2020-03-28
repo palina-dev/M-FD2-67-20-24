@@ -8,35 +8,21 @@ body {
   overflow: hidden;
 }
 
-
-#login, #register {
-  height: 100vh;
-  background-color: #C7FFFC;
-  font-family : monospace;
+#main h1 {
+  margin-bottom: 10%;
+  color: #ffffff;
+  font-family: 'Dancing Script', cursive;
+  font-size: 6rem;
 }
 
-#block {
-  padding: 2%;
-  background-color: #fff;
-  display: block;
+#main div {
+  margin-bottom: 10%;
 }
 
-#block h2 {
-  font-size: 2rem;
-  padding-bottom: 3%;
+#main a {
+  font-size: 3rem;
+  color: #ffffff;
 }
-
-#block input {
-  width: 37vh;
-  height: 5vh;
-  margin-bottom: 5%;
-}
-
-#block button {
-  padding: 2%;
-  margin-bottom: 5%;
-}
-
 #main, #game, #levelGame, #levels, #rules, #results {
   width: 100vw;
   height: 100vh;
