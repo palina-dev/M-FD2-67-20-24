@@ -12,9 +12,9 @@ function HashStorage() {
 
 	this.deleteValue = function(key) {
 		if (key in this.hash) {
-            return delete this.hash[key];
-        }
-        return false;
+            		return delete this.hash[key];
+        	}
+        	return false;
 	};
 
 	this.getKeys = function() {
