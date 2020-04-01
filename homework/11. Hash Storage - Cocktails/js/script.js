@@ -7,11 +7,7 @@ function HashStorage() {
 	};
 
 	this.getValue = function(key) {
-		if (this.hash[key]) {
-			return this.hash[key];
-		} else {
-			return undefined;
-		};
+		return this.hash[key];
 	};
 
 	this.deleteValue = function(key) {
