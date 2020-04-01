@@ -108,4 +108,4 @@ function drawClock(drawing) {
 	}
 }
 
-setInterval(drawClock, 40);
+setInterval(drawClock, 1000);
