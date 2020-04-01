@@ -137,7 +137,7 @@ textTime.style.textAnchor = 'middle';
 
 window.onload = function operation() {
         
-    setInterval(moveArrows, 0);
+    setInterval(moveArrows, 1000);
 
     function moveArrows() {
 
