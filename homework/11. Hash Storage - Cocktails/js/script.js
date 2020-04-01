@@ -32,17 +32,3 @@ console.log(drinksStorage.getValue('Majito'));
 console.log(drinksStorage.getKeys());
 console.log(drinksStorage.deleteValue('BloodyMary')); //true
 console.log(drinksStorage.getValue('BloodyMary')); //undefined
-
-
-// const drinksStorage = {
-// 	Majito : 'Majito: Alcohol - yes; Ingridients - white rum, sugar cane juice, lime juice, soda water, mint',
-// 	BloodyMary : 'Bloody Mary : Alcohol - yes; Ingridients - vodka, tomato juice, Worcestershire sauce, hot sauces, garlic, herbs, horseradish, celery, olives, salt, black pepper, lemon juice, lime juice and/or celery salt.'
-// }
-
-// function showCokctails() {
-// 	console.log(`${this.Majito}\n\n${this.BloodyMary}`);
-// }
-
-// drinksStorage.cocktails = showCokctails;
-// drinksStorage.cocktails();
-
