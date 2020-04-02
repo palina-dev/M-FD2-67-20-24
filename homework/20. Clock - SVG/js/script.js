@@ -135,40 +135,36 @@ textTime.style.fontSize = '2rem';
 textTime.style.fontWeight = 'bold';
 textTime.style.textAnchor = 'middle';
 
-window.onload = function operation() {
-        
-    setInterval(moveArrows, 1000);
+function moveArrows() {
 
-    function moveArrows() {
+    const now = new Date();
+    let seconds = now.getSeconds() * 6;
+    // console.log(seconds);
+    let minutes = now.getMinutes() * 6;
+    // console.log(minutes);
+    // задаю так часы, чтобы они не перескакивали с часа на час, а плавно шли от часа к часу
+    let hours = (now.getHours() + now.getMinutes() / 60 + now.getSeconds() * 3600) * 30;
 
-        const now = new Date();
-        let seconds = now.getSeconds() * 6;
-        // console.log(seconds);
-        let minutes = now.getMinutes() * 6;
-        // console.log(minutes);
-        // задаю так часы, чтобы они не перескакивали с часа на час, а плавно шли от часа к часу
-        let hours = (now.getHours() + now.getMinutes() / 60 + now.getSeconds() * 3600) * 30;
+    // беру стрелки по Id, чтоб потом передать им анимацию
+    let hoursStyle = document.getElementById('hours');
+    let minutesStyle = document.getElementById('minutes');
+    let secondsStyle = document.getElementById('seconds');
+    // задаю анимацию
+    secondsStyle.setAttributeNS(null, 'transform', 'rotate(' + seconds + ' 300 300)');
+    minutesStyle.setAttributeNS(null, 'transform', 'rotate(' + minutes + ' 300 300)');
+    hoursStyle.setAttributeNS(null, 'transform', 'rotate(' + hours + ' 300 300)');
 
-        // беру стрелки по Id, чтоб потом передать им анимацию
-        let hoursStyle = document.getElementById('hours');
-        let minutesStyle = document.getElementById('minutes');
-        let secondsStyle = document.getElementById('seconds');
-        // задаю анимацию
-        secondsStyle.setAttributeNS(null, 'transform', 'rotate(' + seconds + ' 300 300)');
-        minutesStyle.setAttributeNS(null, 'transform', 'rotate(' + minutes + ' 300 300)');
-        hoursStyle.setAttributeNS(null, 'transform', 'rotate(' + hours + ' 300 300)');
-        
-        // создаю функцию в которой буду показывать время в виде циферок
-        function showTime(time) {
-            // делаю проверку для красоты, (const textHour = now.getHours() - работает одинаково)
-            const textHour = (now.getHours() < 10) ? ('0' + now.getHours()) : (now.getHours());
-            const textMinutes = (now.getMinutes() < 10) ? ('0' + now.getMinutes()) : (now.getMinutes());
-            const textSeconds = (now.getSeconds() < 10) ? ('0' + now.getSeconds()) : (now.getSeconds());
+    // создаю функцию в которой буду показывать время в виде циферок
+    function showTime(time) {
+        // делаю проверку для красоты, (const textHour = now.getHours() - работает одинаково)
+        const textHour = (now.getHours() < 10) ? ('0' + now.getHours()) : (now.getHours());
+        const textMinutes = (now.getMinutes() < 10) ? ('0' + now.getMinutes()) : (now.getMinutes());
+        const textSeconds = (now.getSeconds() < 10) ? ('0' + now.getSeconds()) : (now.getSeconds());
 
-            // беру по id мой текст и вставляю туда время
-            document.getElementById("text-time").textContent = textHour + ':' + textMinutes + ':' + textSeconds;
-        }
-        showTime();
-
+        // беру по id мой текст и вставляю туда время
+        document.getElementById("text-time").textContent = textHour + ':' + textMinutes + ':' + textSeconds;
     }
+    showTime();
 }
+
+setInterval(moveArrows(), 1000);
