@@ -108,4 +108,7 @@ function drawClock(drawing) {
 	}
 }
 
-setInterval(drawClock, 1000);
+window.onload = function operation() {
+    setInterval(drawClock, 1000);
+};
+// setInterval(drawClock, 1000);
