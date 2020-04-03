@@ -1,5 +1,5 @@
 const svg = document.getElementById('svg');
-console.log(svg);
+//console.log(svg);
 const svg_xnls = 'http://www.w3.org/2000/svg';
 //если не найдет аттрибутов width || height, то вернет null
 const width = parseFloat(svg.getAttributeNS(null, 'width'));
@@ -33,11 +33,11 @@ function drawClockBody(clock) {
 drawClockBody();
 
 // можно было сделать двумя функциями
-// создаю функцию для кружочков с цифрами 
+// создаю функцию для кружочков с цифрами
 function drawHours(hour, hourValue) {
-    
+
     // градус угла
-    const angel = 30; 
+    const angel = 30;
 
     for (let i = 1; i <= 12; i++) {
 
@@ -122,18 +122,6 @@ function drawArrows(hour_arrow, minute_arrow, second_aqrrow) {
     // рисую стрелку
     svg.appendChild(secondArrow);
 }
-drawArrows();
-
-// создаю элемент текста
-const textTime = document.createElementNS(svg_xnls, 'text');
-svg.appendChild(textTime);
-// задаю стили
-textTime.setAttributeNS(null, 'x', 300);
-textTime.setAttributeNS(null, 'y', 200);
-textTime.setAttributeNS(null, 'id', 'text-time');
-textTime.style.fontSize = '2rem';
-textTime.style.fontWeight = 'bold';
-textTime.style.textAnchor = 'middle';
 
 function moveArrows() {
 
@@ -150,9 +138,9 @@ function moveArrows() {
     let minutesStyle = document.getElementById('minutes');
     let secondsStyle = document.getElementById('seconds');
     // задаю анимацию
-    secondsStyle.setAttributeNS(null, 'transform', 'rotate(' + seconds + ' 300 300)');
-    minutesStyle.setAttributeNS(null, 'transform', 'rotate(' + minutes + ' 300 300)');
-    hoursStyle.setAttributeNS(null, 'transform', 'rotate(' + hours + ' 300 300)');
+    secondsStyle.setAttributeNS(null, 'transform', 'rotate(' + seconds + ' ' + widthHalf + ' ' + heightHalf + ')');
+    minutesStyle.setAttributeNS(null, 'transform', 'rotate(' + minutes + ' ' + widthHalf + ' ' + heightHalf + ')');
+    hoursStyle.setAttributeNS(null, 'transform', 'rotate(' + hours + ' ' + widthHalf + ' ' + heightHalf + ')');
 
     // создаю функцию в которой буду показывать время в виде циферок
     function showTime(time) {
@@ -167,4 +155,20 @@ function moveArrows() {
     showTime();
 }
 
-setInterval(moveArrows(), 1000);
+// создаю элемент текста
+const textTime = document.createElementNS(svg_xnls, 'text');
+svg.appendChild(textTime);
+// задаю стили
+textTime.setAttributeNS(null, 'x', 300);
+textTime.setAttributeNS(null, 'y', 200);
+textTime.setAttributeNS(null, 'id', 'text-time');
+textTime.style.fontSize = '2rem';
+textTime.style.fontWeight = 'bold';
+textTime.style.textAnchor = 'middle';
+
+drawArrows();
+moveArrows();
+
+window.onload = function operation() {
+    setInterval(moveArrows, 1000);
+};
